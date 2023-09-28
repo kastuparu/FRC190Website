@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container mb-4 p-4">
+        {% for user in students %}
+            <div class="media">
+                <img class="align-self-center rounded-circle account-img" alt="profile picture"
+                     src="{{ url_for('static', filename='profile_pics/' + user.profile_pic_filename) }}">
+                <div class="media-body align-self-center">
+                    <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+                    <p class="text-muted">
+                        {{ user.position }} • <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+                    </p>
+                    {% if user.bio %}
+                        <p class="text-muted">{{ user.bio }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% if not loop.last %}<br>{% endif %}
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <div class="container mb-4 p-4">
+        {% for user in mentors %}
+            <div class="media">
+                <img class="align-self-center rounded-circle account-img" alt="profile picture"
+                     src="{{ url_for('static', filename='profile_pics/' + user.profile_pic_filename) }}">
+                <div class="media-body align-self-center">
+                    <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+                    <p class="text-muted">
+                        {{ user.position }} • <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+                    </p>
+                    {% if user.bio %}
+                        <p class="text-muted">{{ user.bio }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% if not loop.last %}<br>{% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}

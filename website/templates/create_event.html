@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container mb-4 p-4">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.title.label(class="form-control-label") }}
+                {% if form.title.errors %}
+                    {{ form.title(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.title.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.title(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.category.label(class="form-control-label") }}
+                {% if form.category.errors %}
+                    {{ form.category(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.category.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.category(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.location.label(class="form-control-label") }}
+                {% if form.location.errors %}
+                    {{ form.location(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.location.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.location(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.start_date.label(class="form-control-label") }}
+                {% if form.start_date.errors or form.start_time.errors %}
+                    {{ form.start_date(class="form-control form-control-lg is-invalid date-time-picker") }}
+                    {{ form.start_time(class="form-control form-control-lg is-invalid date-time-picker") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.start_date.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                        {% for error in form.start_time.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.start_date(class="form-control form-control-lg date-time-picker") }}
+                    {{ form.start_time(class="form-control form-control-lg date-time-picker") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.end_date.label(class="form-control-label") }}
+                {% if form.end_date.errors or form.end_time.errors %}
+                    {{ form.end_date(class="form-control form-control-lg is-invalid date-time-picker") }}
+                    {{ form.end_time(class="form-control form-control-lg is-invalid date-time-picker") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.end_date.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                        {% for error in form.end_time.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.end_date(class="form-control form-control-lg date-time-picker") }}
+                    {{ form.end_time(class="form-control form-control-lg date-time-picker") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.repeats_until.label(class="form-control-label") }}
+                {% if form.repeats_until.errors %}
+                    {{ form.repeats_until(class="form-control form-control-lg is-invalid date-time-picker") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.repeats_until.errors %}
+                            <span class="tex-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.repeats_until(class="form-control form-control-lg date-time-picker") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.details.label(class="form-control-label") }}
+                {% if form.details.errors %}
+                    {{ form.details(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.details.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.details(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.sign_up_link.label(class="form-control-label") }}
+                {% if form.sign_up_link.errors %}
+                    {{ form.sign_up_link(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.sign_up_link.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.sign_up_link(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <fieldset class="form-group">
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-primary") }}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+{% endblock %}

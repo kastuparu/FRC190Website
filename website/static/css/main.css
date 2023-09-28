@@ -1,0 +1,30 @@
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-nav-img {
+  height: 30px;
+  width: 30px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.date-time-picker {
+  max-width: 20%;
+  display: inline;
+}
+
+.footing-icon {
+  padding: 0;
+  width: 20%;
+  height: 100%;
+}

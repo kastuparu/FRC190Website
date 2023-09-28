@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container mb-4 p-4">
+
+        <h2>{{ event.title }}</h2>
+        <small class="text-muted m-3"><i class="fa-solid fa-list"></i> {{ event.category }}</small><br>
+        <small class="text-muted m-3"><i class="fa-solid fa-location-dot"></i> {{ event.location }}</small><br>
+        <small class="text-muted m-3">
+            <i class="fa-solid fa-calendar-days"></i> {{ event.start_date|format_datetimes(event.end_date) }}
+        </small><br>
+        <br>
+        <p class="article-content">{{ event.details }}</p>
+
+        <br>
+
+        <form method="POST" action="">
+
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.start_date.label(class="form-control-label") }}
+                {% if form.start_date.errors or form.start_time.errors %}
+                    {{ form.start_date(class="form-control form-control-lg is-invalid date-time-picker") }}
+                    {{ form.start_time(class="form-control form-control-lg is-invalid date-time-picker") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.start_date.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                        {% for error in form.start_time.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.start_date(class="form-control form-control-lg date-time-picker") }}
+                    {{ form.start_time(class="form-control form-control-lg date-time-picker") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.end_date.label(class="form-control-label") }}
+                {% if form.end_date.errors or form.end_time.errors %}
+                    {{ form.end_date(class="form-control form-control-lg is-invalid date-time-picker") }}
+                    {{ form.end_time(class="form-control form-control-lg is-invalid date-time-picker") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.end_date.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                        {% for error in form.end_time.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.end_date(class="form-control form-control-lg date-time-picker") }}
+                    {{ form.end_time(class="form-control form-control-lg date-time-picker") }}
+                {% endif %}
+            </div>
+
+            <br>
+            {% if previously_existing %}
+                <small class="alert alert-danger">
+                    You have already logged hours for this event. Submitting will overwrite those hours.
+                </small>
+                <br><br>
+            {% endif %}
+
+            <fieldset class="form-group">
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-primary") }}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+{% endblock %}

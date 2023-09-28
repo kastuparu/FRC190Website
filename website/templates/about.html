@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container mb-4 p-4">
+        <img class="float-right ml-4" src="{{ url_for('static', filename='images/About-190.jpeg') }}"
+             alt="190's 2k19, 2k21, and 2k22 robots" style="width: 40%;">
+        <p>FRC 190 is a robotics team located in Worcester, Massachusetts and funded by Worcester Polytechnic Institute
+            and Jabil Healthcare.</p>
+        <p>On this page you can learn all about our team’s history, philosophy, quirky traditions and much more.</p>
+        <div style="clear: both;"></div>
+    </div>
+
+    <div class="container mb-4 p-4">
+        <h2>Team Structure</h2>
+        <br>
+        <p>The team is lead by Colleen Shaver, WPI’s Robotics Resource Center Director. She is supported by the other
+            RRC Staff Amanda Bessette and Francis O’Rourke.</p>
+        <p>Along with the RRC, group of industry mentors support a variety of team initiatives to ensure success.
+            These include Zach Boyer (project manager, lead designer) and Nick Greeley (project management).
+            Additionally, a rotating group of college mentors from WPI support the team while also learning valuable
+            lessons in engineering project management from our industry leaders.</p>
+        <p>Our high school students participations primarily hail from the Massachusetts Academy of Math and Science.
+            However, the team welcomes participants from outside the Mass Academy. The goal of this is to help bring
+            robotics to more students in our local community who may not have access. We particularly appreciate
+            freshman/sophomores who want to join the team for multiple years. We are also seeking partnerships with
+            groups like African Community Education (ACE) to support their students.</p>
+        <br>
+        <p>Team 190 is always looking for new members. If you are a high school student eligible and interested in
+            joining the team email the Robotics Resource Center (<a href="mailto:first@wpi.edu">first@wpi.edu</a>)
+            and request to be added to the mailing list.</p>
+        <p>Who is eligible to join as a high school student?</p>
+        <ul>
+            <li>Current attendees of Massachusetts Academy of Math and Science at WPI</li>
+            <li>Home-school students (ages 14-18) in the local area</li>
+            <li>Students from a Worcester County high school that does not offer FRC</li>
+        </ul>
+        <p>If you are above high school age and interested in joining as a mentor, email
+            <a href="mailto:first@wpi.edu">first@wpi.edu</a> for more information.</p>
+    </div>
+
+    <div class="container mb-4 p-4">
+        <h2>Sponsors</h2>
+        <br>
+        <a href="https://www.wpi.edu/" target="_blank">
+            <img class="float-left m-4" src="{{ url_for('static', filename='images/WPI.png') }}"
+                 alt="WPI" style="width: 40%;">
+        </a>
+        <a href="https://www.jabil.com/industries/healthcare.html" target="_blank">
+            <img class="float-right m-4" src="{{ url_for('static', filename='images/jabil.png') }}"
+                 alt="Jabil Healthcare" style="width: 40%">
+        </a>
+        <div style="clear: both;"></div>
+    </div>
+
+    <div class="container mb-4 p-4">
+        <h2>Our Facilities</h2>
+        <br>
+        <img class="float-left mr-4 mb-4" src="{{ url_for('static', filename='images/OurFacilities.jpeg') }}"
+             alt="Our lab" style="width: 40%;">
+        <p>Team 190 operates out of a fully equipped shop on the WPI campus. Our shop has a lathe, mill, a horizontal
+            and a vertical band saw, a drill press, CNC router, and powder-coating oven. We also have access to WPI
+            campus resources including a laser cutter, 3D printers, and welding facilities. In addition to shop space,
+            the team has shared access to a large testing space in the school’s Sports and Recreation Center.</p>
+        <p>This year, the team will be moving its operations to a new building at 15 Sagamore Rd. This space will not
+            only include offices for RRC staff and a dedicated workspace for the team, it will include a larger and more
+            advanced machine shop and a full FIRST field that will be available for community use. We look forward to
+            supporting our fellow FIRST teams by offering them a place to regularly practice and test their robots.</p>
+        <p>At 15 Sagamore, the team will be joined by other WPI clubs, include Formula SAE, High Powered Rocketry, VEXU,
+            and Combat Robotics. The building also houses advanced faculty labs of WPI researchers.</p>
+        <div style="clear: both;"></div>
+    </div>
+
+    <div class="container mb-4 p-4">
+        <h2>Our Mascot, Gompei</h2>
+        <br>
+        <img class="float-right ml-4 mb-4" src="{{ url_for('static', filename='images/Gompei.jpeg') }}"
+             alt="Gompei statue" style="width: 40%;">
+        <p>In 1891, the sophomore class gifted a black goat to WPI. A Japanese student, Gompei Kuwada, was elected to
+            take care of the goat because his initials, G. K., also stood for Goat Keeper. Overtime, the animal became
+            very difficult to maintain, and the goat was eventually beheaded and its head was mounted. The actual Goat’s
+            Head, also known as Gompei’s Head, was eventually replaced with a bronze replica for preservation.</p>
+        <p>Starting with the Class of 1928, a competition between the freshman and sophomore classes was organized. The
+            classes could earn points through events, such as sports and the tech carnival, and the Goat’s Head was
+            present to the class with the most points. Once a year, the winning class was obliged to show the head
+            publicly to allow the other class to steal it back. Some notable “showings” include hanging the head from a
+            helicopter during a football game and dropping the head from a bridge into a moving convertible. The
+            competition was canceled for some time because of its violent nature; however, it has resumed recently with
+            a new set of rules.</p>
+        <p>In 1998, FIRST decided that team names and numbers would carry over from year to year. It was at this time
+            Team 190 decided to include “Gompei” in its name.</p>
+        <div style="clear: both;"></div>
+    </div>
+
+    <div class="container mb-4 p-4">
+        <h2>Team Culture - Crud</h2>
+        <br>
+        <img class="float-left mr-4 mb-4" src="{{ url_for('static', filename='images/Crud.jpeg') }}" alt="Crud"
+             style="width: 40%;">
+        <p>Crud is a game that was developed by the American and Canadian Air Forces. It is a competitive team sport
+            played on a billiards table using the cue ball and a striped ball, typically the fifteen. Before the game,
+            two captains are selected, and they pick teams. The primary objective of the game is to keep the fifteen
+            moving by striking it with cue ball. Each player begins with three lives, and they lose a life if they are
+            responsible for letting the ball stop. A player is eliminated when they lose all their lives, and a team is
+            eliminated when all of its players have been eliminated.</p>
+        <p>Team 190 began playing Crud when Ken Stafford joined the team in 1999. Today, much team spirit comes from
+            Crud. One of new team members’ first experiences is being Crudified, or receiving a Crud name. These names
+            consist of two syllables, are often amusing, and have a connection with the member’s personality,
+            appearance, or behavior. Once or twice a year, team members have the opportunity to order Crud shirts,
+            which have the member’s Crud name and year of Crudification on the back. The team makes a point to play each
+            Saturday during build season at Captain Samuel Eddy’s Crud Emporium, also known as CSECE, or in the WPI
+            Campus Center.</p>
+        <div style="clear: both;"></div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container mb-4 p-4">
+        <p>Every year, WPI hosts a number of robotics events on its campus, and both the high school members and
+            college mentors of the team are actively involved. Specifically, these events are the WPI District,
+            BattleCry@WPI, Savage Soccer, and Robonautica. Each event provides team members with the opportunity to
+            have fun battling it out on field or volunteer to help run the show.</p>
+        <p>The WPI District is an NEFIRST District Competition that hosts 40 teams on campus during the term break in
+            March. Prior to the District, WPI played host to the WPI Regional from 2010 to 2013. The Regional was one
+            of the most diverse events of its size in FIRST, with teams hailing from Brazil, Hawaii, and the United
+            Kingdom. Team 190 students and mentors have competed in and volunteered at the event since its inception</p>
+    </div>
+
+    <div class="container mb-4 p-4">
+        <h2>BattleCry</h2>
+        <br>
+        <a href="https://wp.wpi.edu/battlecry/" target="_blank">
+            <img class="float-left mr-4 mb-4" src="{{ url_for('static', filename='images/BattleCry2023.png') }}"
+                 alt="BattleCry 2023" style="width: 40%;">
+        </a>
+        <p>Each May, Team 190 hosts its annual off-season event,
+            <a href="https://wp.wpi.edu/battlecry/" target="_blank">BattleCry@WPI</a>. Founded in 2000 as a means for
+            teams to compete after World Championships with their robots, BattleCry@WPI has grown to 60 teams and is
+            widely recognized as one of the premiere off-season events. Team 190 traditionally has one or two mentors
+            work with the high school students, while the rest of the team volunteers for the event.</p>
+        <div style="clear: both;"></div>
+    </div>
+
+    <div class="container mb-4 p-4">
+        <h2>Savage Soccer</h2>
+        <br>
+        <a href="https://wp.wpi.edu/savage-soccer/" target="_blank">
+            <img class="float-right ml-4 mb-4" src="{{ url_for('static', filename='images/SavageSoccer.png') }}"
+                 alt="Savage Soccer" style="width: 40%;">
+        </a>
+        <p><a href="https://wp.wpi.edu/savage-soccer/" target="_blank">Savage Soccer</a> is a VEX-based robotics
+            competition started in 1995 by WPI, and is designed and run by Team 190 college mentors each year. Modeled
+            loosely after the First Robotics Competition program, a new game is developed each year, with teams given
+            four weeks to brainstorm, design, and build a robot using VEX robotics parts. At the end of the build time,
+            teams gather at WPI to compete in the Intergalactic Savage Soccer competition. This is a free event,
+            intended to serve as a team-building and FRC build season exercise each Fall for local middle and high
+            schools. Team 190 considers this event an open-source competition, with full documentation available to
+            other groups who would like to use the game at an off-season Savage Soccer event. The team also provides
+            resources to groups that wish to participate but do not have access to kits. 190’s mentors design the game
+            and run the tournament, as well as serve as coaches for the 190 high school students in the competition.</p>
+        <div style="clear: both;"></div>
+    </div>
+
+    <div class="container mb-4 p-4">
+        <h2>Robonautica</h2>
+        <br>
+        <img class="float-left mr-4 mb-4" src="{{ url_for('static', filename='images/Robonautica.jpeg') }}"
+             alt="FLL Robonautica" style="width: 40%;">
+        <p>Closing out the calendar year, WPI and Team 190 host Robonautica, the FLL Massachusetts State Championship.
+            Each December, over 80 qualifying FLL teams swarm Harrington Auditorium and the Sports and Recreation
+            Center to compete for invitations to the World Festival. Team 190 and other local teams collaborate to
+            staff the event.</p>
+        <div style="clear: both;"></div>
+    </div>
+
+{% endblock %}

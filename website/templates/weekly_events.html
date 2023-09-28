@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% if events %}
+        {% for event in events %}
+
+            <div class="container mb-4 p-4">
+
+                {% if current_user.admin %}
+                    <div class="float-right">
+                        <a class="btn btn-outline-info" href="{{ url_for('events.edit_event', event_id=event.id) }}">
+                            <i class="fa-solid fa-pen-to-square"></i> Edit
+                        </a>
+                        <a class="btn btn-outline-danger" href="{{ url_for('events.delete_event', event_id=event.id) }}">
+                            <i class="fa-solid fa-trash"></i> Delete
+                        </a>
+                    </div>
+                {% endif %}
+
+                <h2 class="float-left">{{ event.title }}</h2>
+
+                <div style="clear: both;"></div>
+
+                <small class="text-muted m-3"><i class="fa-solid fa-list"></i> {{ event.category }}</small><br>
+                <small class="text-muted m-3"><i class="fa-solid fa-location-dot"></i> {{ event.location }}</small><br>
+                <small class="text-muted m-3">
+                    <i class="fa-solid fa-calendar-days"></i> {{ event.start_date|format_datetimes(event.end_date) }}
+                </small><br>
+
+                {% if event.sign_up_link %}
+                    <small class="text-muted m-3"><a href="{{ event.sign_up_link }}" target="_blank">
+                        <i class="fa-solid fa-link"></i> Sign-Up Link
+                    </a></small><br>
+                {% endif %}
+
+                {% if event.details %}
+                    <br>
+                    <p class="article-content">{{ event.details }}</p>
+                {% endif %}
+
+                {% if event.planned_attendees %}
+                    <p>Attendees:
+                        {% for user in event.planned_attendees %}
+                            {{ user.first_name }} {{user.last_name}}{{ ', ' if not loop.last else '' }}
+                        {% endfor %}
+                    </p>
+                {% elif weeks_diff >= 0 %}
+                    <p class="text-muted">Be the first to sign up</p>
+                {% endif %}
+
+                {% if weeks_diff >= 0 %}
+                    {% if current_user.is_attending(event) %}
+                        <a class="btn btn-outline-primary" href="{{ url_for('events.plan_attendance', event_id=event.id, action='quit') }}">
+                            <i class="fa-regular fa-calendar-xmark"></i> Quit
+                        </a>
+                    {% else %}
+                        <a class="btn btn-outline-primary" href="{{ url_for('events.plan_attendance', event_id=event.id, action='sign_up') }}">
+                            <i class="fa-regular fa-calendar-check"></i> Sign Up
+                        </a>
+                    {% endif %}
+                {% endif %}
+
+                {% if weeks_diff <= 0 %}
+                    <a class="btn btn-outline-primary" href="{{ url_for('hours.log_hours', event_id=event.id) }}">
+                        <i class="fa-solid fa-clipboard-list"></i> Log Hours
+                    </a>
+                {% endif %}
+            </div>
+            <hr>
+        {% endfor %}
+
+    {% else %}
+        <div class="container mb-4 p-4">
+            <p class="text-muted">No events for this week</p>
+        </div>
+        <hr>
+    {% endif %}
+
+    <div class="container mb-4 p-4 text-center">
+        <a class="btn btn-outline-primary float-left" href="{{ url_for('events.weekly_events', weeks_diff=weeks_diff - 1) }}">
+            <i class="fa-solid fa-angles-left"></i> Last Week
+        </a>
+        {% if current_user.admin %}
+            <a class="btn btn-outline-info" href="{{ url_for('events.create_event') }}">
+                <i class="fa-regular fa-calendar-plus"></i> Create Event
+            </a>
+        {% endif %}
+        <a class="btn btn-outline-primary float-right" href="{{ url_for('events.weekly_events', weeks_diff=weeks_diff + 1) }}">
+            Next Week <i class="fa-solid fa-angles-right"></i>
+        </a>
+    </div>
+
+{% endblock %}

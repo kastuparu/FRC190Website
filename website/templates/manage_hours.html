@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container mb-4 p-4">
+        <h2>Recently Logged Hours</h2>
+        <br>
+        {% if hours_list %}
+            {% for hours in hours_list %}
+                <h5>{{ hours.user.first_name }} {{ hours.user.last_name }}, {{ hours.duration }} hours for {{ hours.event.title }}</h5>
+                <small class="text-muted m-3"><i class="fa-solid fa-list"></i> {{ hours.event.category }}</small><br>
+                <small class="text-muted m-3"><i class="fa-solid fa-location-dot"></i> {{ hours.event.location }}</small><br>
+                <small class="text-muted m-3">
+                    <i class="fa-solid fa-calendar-days"></i> {{ hours.event.start_date|format_datetimes(hours.event.end_date) }}
+                </small><br>
+                <br>
+                <a class="btn btn-outline-success" href="{{ url_for('hours.approve_hours', hours_id=hours.id) }}">
+                    <i class="fa-solid fa-circle-check"></i> Approve
+                </a>
+                <a class="btn btn-outline-danger" href="{{ url_for('hours.delete_hours', hours_id=hours.id) }}">
+                    <i class="fa-solid fa-circle-minus"></i> Don't Approve
+                </a>
+                <br><br>
+            {% endfor %}
+        {% else %}
+            <p class="text-muted">No recently logged hours</p>
+        {% endif %}
+    </div>
+
+    <hr>
+
+    <div class="container mb-4 p-4">
+        <h2>Hours Summary - Students</h2>
+        <br>
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    {% for hours_type in hours_types %}
+                        <th scope="col">{{ hours_type }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in students %}
+                    {% set hours_summary = user.hours_summary() %}
+                    <tr>
+                        <th scope="row">
+                            {{ user.last_name }}, {{ user.first_name }}
+                            <br>
+                            <small class="text-muted">{{ user.position }}</small>
+                        </th>
+                        {% for hours_type in hours_summary.keys() %}
+                            <td>{{ hours_summary[hours_type] }} hrs</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+
+    <div class="container mb-4 p-4">
+        <h2>Hours Summary - Mentors</h2>
+        <br>
+        <table class="table text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    {% for hours_type in hours_types %}
+                        <th scope="col">{{ hours_type }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in mentors %}
+                    {% set hours_summary = user.hours_summary() %}
+                    <tr>
+                        <th scope="row">
+                            {{ user.last_name }}, {{ user.first_name }}
+                            <br>
+                            <small class="text-muted">{{ user.position }}</small>
+                        </th>
+                        {% for hours_type in hours_summary.keys() %}
+                            <td>{{ hours_summary[hours_type] }} hrs</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

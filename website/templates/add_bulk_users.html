@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container mb-4 p-4">
+        <p>Paste in the contents of a CSV file. You can generate a file by exporting an Excel spreadsheet, where the
+            columns are first name, last name, email, and position. In the text, each line should represent a new user.
+            The format should be the following values separated by commas (no spaces): first name, last name, email,
+            and position. For example:</p>
+        <p>{{ current_user.first_name }},{{ current_user.last_name }},{{ current_user.email }},{{ current_user.position }}</p>
+        <p>The last value, the position, must be one of the following:
+            {% for position in settings['student_types'] + settings['mentor_types'] %}
+                {{ position }}{{ ', ' if not loop.last else '' }}
+            {% endfor %}.
+        </p>
+        <p>For each valid new user (valid email and position), a temporary password will be generated. This feature is
+            not fully implemented, but in the future, an email will be sent to the user to create their account.</p>
+
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                {{ form.bulk_users.label(class="form-control-label") }}
+                {% if form.bulk_users.errors %}
+                    {{ form.bulk_users(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.bulk_users.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.bulk_users(rows=50, columns=100, class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <br>
+
+            <fieldset class="form-group">
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-primary") }}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+{% endblock %}

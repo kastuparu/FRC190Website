@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container mb-4 p-4">
+        <img class="float-right ml-4 mb-4" src="{{ url_for('static', filename='images/demo.jpg') }}"
+             alt="Demo with 2k22 robot" style="width: 40%;">
+        <p>Annually, Team 190 does dozens of demos to groups around Massachusetts. Demos are public events, often held
+            at schools, libraries, community centers, scout troops, STEM nights, or festivals. Typically, demos are 50
+            minutes long, where team members discuss and present information about STEM, robotics, and the team,
+            demonstrate our 120-pound competition robot’s capabilities, and answer questions from the audience.
+            Towards the end of our demos we give audience members the opportunity to drive the robot with the help of
+            team members.</p>
+        <p>At a festival or fair, the team is able to do a many shorter demos to a rotating audience. For school
+            functions, the team is able to run multiple demos back-to-back.</p>
+        <p>If you have questions, or are interested in scheduling a demo, contact Francis O’Rourke, Assistant Director of
+            the WPI Robotics Resource Center at <a href="mailto:rrc@wpi.edu">rrc@wpi.edu</a>.</p>
+        <div style="clear: both;"></div>
+    </div>
+
+    <div class="container mb-4 p-4">
+        <h2>Donations</h2>
+        <br>
+        <p>In order to offset the costs of transporting our robot and team members, we traditionally ask for small a
+            donation to our team. Team 190 will happily waive any requested donation if your school or organization
+            meets one of the following criteria:</p>
+        <ul>
+            <li>Located in a city or town that is identified by the state of Massachusetts as having:
+                <ul>
+                    <li>All its public schools in its public school district meet school wide title: Title 1 status*</li>
+                    <li>The event is for the general public, such as a STEM fair, town fair, public festival etc., or
+                        programming for a public space such as a library, or community center.</li>
+                </ul>
+            </li>
+            <li>A K-12 school identified by the state of Massachusetts as having school wide Title 1 status*. </li>
+            <li>An organization or event with the stated mission of outreach or increasing opportunity for people of an
+                underrepresented minority, as defined by WPI (people of Hispanic; Black or African American; American
+                Indian or Alaska Native; and Hawaiian or Pacific Islander origin).</li>
+        </ul>
+        <br>
+        <i class="text-muted">* If you are unsure if your city or town meets this district and/or school wide Title I
+            criteria, please inquire at <a href="mailto:rrc@wpi.edu">rrc@wpi.edu</a>.</i>
+    </div>
+
+    <div class="container mb-4 p-4">
+        <h2>Demo Venue Needs</h2>
+        <br>
+        <div class="text-center">
+            <img class="mr-4 mb-4" src="{{ url_for('static', filename='images/demo-venue.jpg') }}"
+                 alt="Demo with 2k22 robot" style="width: 70%;">
+        </div>
+        <p>Potential demo venues should have the following:</p>
+        <ul>
+            <li>A 10′ x 10′ or larger space free of obstacles with at least nine-foot tall ceilings. The floor should
+                be mostly flat and level, and either high traffic carpet or a hard floor such as laminate, tile, wood,
+                concrete, or a gym floor. Our robots use hard rubber wheels.</li>
+            <li>For demos with a presentation, a designated seating area with some space between the robot operating
+                area and the spectators to ensure safe operation.</li>
+            <li>A four-foot long table (or longer) to set the robot controls on.</li>
+            <li>Access to a power outlet near the table to power the controls.</li>
+        </ul>
+        <p>Great places to hold a demo are gyms, cafeterias, rec rooms, or outside on asphalt or concrete (weather
+            permitting, robots and water do not mix). Other locations, such as in a grassy area, can be accommodated on
+            a case by case basis. If you have any questions, or would like to schedule a demo, contact Francis O’Rourke,
+            Assistant Director of the Robotics Resource Center at <a href="mailto:rrc@wpi.edu">rrc@wpi.edu</a>.</p>
+        <div style="clear: both;"></div>
+    </div>
+
+{% endblock %}
