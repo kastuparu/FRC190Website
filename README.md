@@ -1,5 +1,7 @@
 # FRC 190 Website
 
+[YouTube Tutorial for Python Flask](https://www.youtube.com/watch?v=MwZwr5Tvyxo&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH&index=1)
+
 ## Last Update: August 2022
 
 1. View current and upcoming events. Users can sign up for events to show interest of attending. They can also log hours during or after the event occurs.
